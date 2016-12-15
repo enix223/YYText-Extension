@@ -62,7 +62,7 @@ class YYLabelLinkParser: NSObject, YYTextParser {
                                             }
                                         }
                                         
-                                        text.yy_setColor(UIColor.sencondaryColor(), range: range)
+                                        text.yy_setColor(UIColor.blue, range: range)
                                         text.yy_setTextHighlight(highlight, range: range)
                                         change = true
                                         debugPrint("Found email: %@", text.string)
@@ -94,7 +94,7 @@ class YYLabelLinkParser: NSObject, YYTextParser {
                                                 }
                                             }
                                             
-                                            text.yy_setColor(UIColor.sencondaryColor(), range: range)
+                                            text.yy_setColor(UIColor.blue, range: range)
                                             text.yy_setTextHighlight(highlight, range: range)
                                             change = true
                                             
