@@ -5,7 +5,7 @@ Extension for YYText Library
 
 ### Introduction
 
-`YYLabelLinkParser` is a text parser to detect `email`, `mobile` for the YYLabel. At the mean time, a text highlight is assigned to the detected link. When the link is tap, delegate methods which conformed to `YYLabelLinkActionDelegate` will be called.
+`YYLabelLinkParser` makes use of `textParser` property in the `YYLabel` to help detect `email`, `mobile number`, meanwhile, a text highlight is assigned to the detected link. When the link is tap, delegate methods which conformed to `YYLabelLinkActionDelegate` will be called.
 
 ### Usage
 
@@ -25,12 +25,15 @@ class TestViewController: YYLabelLinkActionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         contactLabel.attributedText = viewModel.contact
+        
+        // Create a link parser and assigned it to the yylabel textParser property
         contactLabel.textParser = YYLabelLinkParser(delegate: self)
     }
     
     // MARK: YYLabelLinkActionDelegate
     
     func handleMailAction(string: String) {
+        // Called when the user tap the email link
         UIAlertController.showActionSheet(title: "提示".localized,
                                           message: "发现邮箱地址".localized,
                                           inController: self,
@@ -51,6 +54,7 @@ class TestViewController: YYLabelLinkActionDelegate {
     }
     
     func handleMobileAction(string: String) {
+        // Called when the user tap the mobile link
         UIAlertController.showActionSheet(title: "提示".localized,
                                           message: "发现手机号码".localized,
                                           inController: self,
